@@ -38,7 +38,7 @@
             </ul>
         </div>
     </nav>
-
+   
     <!-- Page content -->
     <div class="container-fluid">
             <h2>{{ course.name }}</h2>
@@ -50,20 +50,46 @@
                     </div>
                 {% endfor %}
             </div>
+            <h6>Click to show exam</h6>
             <!-- Task: show questions and choices -->
-            <!-- <HINT> Use Bootstrap Collapse to hide exam first, more details could be found here
-            https://www.w3schools.com/bootstrap4/bootstrap_collapse.asp-->
-
-            <!--
-
-            A collapse example here:
+            <button type="button" class="btn btn-primary btn-block" data-toggle="collapse" data-target="#exam">Start Exam</button>          
+            
             <div id="exam" class="collapse">
-                Click to expand elements within the collapse div
-                </div>
+                
 
-            -->
+                <form id="questionform" action="{% url 'onlinecourse:login' %}" method="post
+                    <div class="card mt-1">
+                        <div class="card-header"><h5>What does it mean SQL?</h5></div>
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <!--for each choice in the question -->
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="checkbox" name="choice_1"
+                                           class="form-check-input" id="1"
+                                           value="1">Structured Query Language
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="checkbox" name="choice_2"
+                                           class="form-check-input" id="2"
+                                           value="2">Space Query Language
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                <input class="btn btn-success btn-block" type="submit" value="Submit">                    
+
+                </form>
+
+
+            </div>
+
+            
 
             <!-- <HINT> If user is authenticated, show course exam with a list of question -->
+            
 
             <!-- <HINT> Each example will have many questions -->
 
